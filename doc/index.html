@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriately as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description"
+    content="SELP: Generating Safe and Efficient Task Plans for Robot Agents with Large Language Models. A novel approach combining equivalence voting, constrained decoding, and domain-specific fine-tuning for improved robot planning.">
+  <meta property="og:title" content="SELP: Safe Efficient LLM Planner for Robot Agents" />
+  <meta property="og:description"
+    content="Discover how SELP combines LTL specifications with LLMs to create robot plans that are both safe and time-efficient, achieving significant improvements in safety rate and execution time." />
+  <meta property="og:url" content="https://github.com/lt-asset/selp" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimensions are 1200X630-->
+  <meta property="og:image" content="static/image/selp_banner.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+
+  <meta name="twitter:title" content="SELP: Safe & Efficient Robot Planning with LLMs">
+  <meta name="twitter:description"
+    content="A novel approach combining LTL and LLMs for robot task planning that's both safe and time-efficient, with significant improvements in safety rate and plan execution time.">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimensions are 1200X600-->
+  <meta name="twitter:image" content="static/images/selp_twitter_banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords"
+    content="robot planning, large language models, LLM, linear temporal logic, LTL, safe planning, efficient planning, constrained decoding, equivalence voting, domain-specific fine-tuning, drone navigation, robot manipulation, task planning, natural language commands">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>SELP: Generating Safe and Efficient Task Plans for Robot Agents with Large Language Models</title>
+  <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              SELP: Generating Safe and Efficient Task Plans for Robot Agents with Large Language Models
+            </h1>
+
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://wuyff.github.io/" target="_blank">Yi Wu</a>,</span>
+              <span class="author-block">
+                <a href="https://xiong.zikang.me/" target="_blank">Zikang Xiong</a>,</span>
+              <span class="author-block">
+                <a href="https://www.cs.purdue.edu/people/graduate-students/hu954.html" target="_blank">Yiran
+                  Hu</a>,</span>
+              <span class="author-block">
+                <a href="https://www.cs.purdue.edu/people/graduate-students/iyengar3.html" target="_blank">Shreyash S.
+                  Iyengar</a>,</span>
+              <span class="author-block">
+                <a href="https://jiang719.github.io/" target="_blank">Nan Jiang</a>,</span>
+              <span class="author-block">
+                <a href="https://www.cs.purdue.edu/homes/ab/index.html" target="_blank">Aniket Bera</a>,</span>
+              <span class="author-block">
+                <a href="https://www.cs.purdue.edu/homes/lintan/" target="_blank">Lin Tan</a>,</span>
+              <span class="author-block">
+                <a href="https://www.cs.purdue.edu/homes/suresh/" target="_blank">Suresh Jagannathan</a>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Computer Science Department, Purdue University<br>IEEE International Conference
+                on Robotics and Automation (ICRA) 2025</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2409.19471.pdf" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://github.com/lt-asset/selp" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://github.com/lt-asset/selp" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-database"></i>
+                    </span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Teaser video-->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <!-- Your video here -->
+          <source src="static/videos/demo_video.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+  <!-- End teaser video -->
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Despite significant advancements in large language models (LLMs) that enhance robot agents' understanding
+              and execution of natural language (NL) commands, ensuring the agents adhere to user-specified constraints
+              remains challenging, particularly for complex commands and long-horizon tasks. To address this challenge,
+              we present three key insights, equivalence voting, constrained decoding, and domain-specific finetuning,
+              which significantly enhance LLM planners' capability in handling complex tasks. Equivalence voting ensures
+              consistency by generating and sampling multiple Linear Temporal Logic (LTL) formulas from NL commands,
+              grouping equivalent LTL formulas, and selecting the majority group of formulas as the final LTL formula.
+              Constrained decoding then uses the generated LTL formula to enforce the autoregressive inference of plans,
+              ensuring the generated plans conform to the LTL. Domain-specific fine-tuning customizes LLMs to produce
+              safe and efficient plans within specific task domains. Our approach, Safe Efficient LLM Planner (SELP),
+              combines these insights to create LLM planners to generate plans adhering to user commands with high
+              confidence. We demonstrate the effectiveness and generalizability of SELP across different robot agents
+              and tasks, including drone navigation and robot manipulation. For drone navigation tasks, SELP outperforms
+              state-of-the-art planners by 10.8% in safety rate (i.e., finishing tasks conforming to NL commands) and by
+              19.8% in plan efficiency. For robot manipulation tasks, SELP achieves 20.4% improvement in safety rate.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
+
+
+  <!-- Image carousel -->
+  <!-- <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item">
+            <img src="static/images/carousel1.jpg" alt="MY ALT TEXT" />
+            <h2 class="subtitle has-text-centered">
+              First image description.
+            </h2>
+          </div>
+          <div class="item">
+            <img src="static/images/carousel2.jpg" alt="MY ALT TEXT" />
+            <h2 class="subtitle has-text-centered">
+              Second image description.
+            </h2>
+          </div>
+          <div class="item">
+            <img src="static/images/carousel3.jpg" alt="MY ALT TEXT" />
+            <h2 class="subtitle has-text-centered">
+              Third image description.
+            </h2>
+          </div>
+          <div class="item">
+            <img src="static/images/carousel4.jpg" alt="MY ALT TEXT" />
+            <h2 class="subtitle has-text-centered">
+              Fourth image description.
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <!-- End image carousel -->
+
+  <!-- Youtube video -->
+  <!-- <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Video Presentation</h2>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+
+            <div class="publication-video">
+              <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <!-- End youtube video -->
+
+
+  <!-- Video carousel -->
+  <!-- <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Another Carousel</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-video1">
+            <video poster="" id="video1" autoplay controls muted loop height="100%">
+              <source src="static/videos/carousel1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-video2">
+            <video poster="" id="video2" autoplay controls muted loop height="100%">
+              <source src="static/videos/carousel2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-video3">
+            <video poster="" id="video3" autoplay controls muted loop height="100%">\
+              <source src="static/videos/carousel3.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <!-- End video carousel -->
+
+
+  <!-- Paper poster -->
+  <!-- <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title">Poster</h2>
+
+        <iframe src="static/pdfs/sample.pdf" width="100%" height="550">
+        </iframe>
+
+      </div>
+    </div>
+  </section> -->
+  <!--End paper poster -->
+
+
+  <!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+        @inproceedings{wu2025selp,
+          title={SELP: Generating Safe and Efficient Task Plans for Robot Agents with Large Language Models},
+          author={Wu, Yi and Xiong, Zikang and Hu, Yiran and Iyengar, Shreyash S. and Jiang, Nan and Bera, Aniket and Tan, Lin and Jagannathan, Suresh},
+          booktitle={IEEE International Conference on Robotics and Automation (ICRA)},
+          year={2025},
+        }
+      </code></pre>
+    </div>
+  </section>
+  <!--End BibTex citation -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the source code of this website, we just ask that you link back to this page in the
+              footer. <br> This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+
+</body>
+
+</html>
