@@ -85,7 +85,8 @@
 
             <div class="is-size-5 publication-authors">
               <span class="author-block">Computer Science Department, Purdue University<br>IEEE International Conference
-                on Robotics and Automation (ICRA) 2025</span>
+                on Robotics and Automation (ICRA) 2025 <br> <span style="color: red; font-weight: bold;">Best Paper
+                  Award Final List</span> </span>
             </div>
 
             <div class="column has-text-centered">
@@ -230,30 +231,37 @@
 
 
   <!-- Video carousel -->
-  <!-- <section class="hero is-small">
+  <section class="hero is-small">
     <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-3">Another Carousel</h2>
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item item-video1">
-            <video poster="" id="video1" autoplay controls muted loop height="100%">
-              <source src="static/videos/carousel1.mp4" type="video/mp4">
-            </video>
+      <div class="container has-text-centered">
+        <h2 class="title is-4">Drone Tasks</h2>
+
+        <!-- Dropdown menu for video selection using Bulma classes -->
+        <div class="field" style="max-width: 400px; margin: 0 auto;">
+          <div class="control">
+            <div class="select is-small is-fullwidth">
+              <select id="video-selector" onchange="changeVideo()">
+                <option value="static/videos/task-1.mp4">Task 1</option>
+                <option value="static/videos/task-2.mp4">Task 2</option>
+                <option value="static/videos/task-3.mp4">Task 3</option>
+                <option value="static/videos/task-4.mp4">Task 4</option>
+                <option value="static/videos/task-5.mp4">Task 5</option>
+              </select>
+            </div>
           </div>
-          <div class="item item-video2">
-            <video poster="" id="video2" autoplay controls muted loop height="100%">
-              <source src="static/videos/carousel2.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-video3">
-            <video poster="" id="video3" autoplay controls muted loop height="100%">\
-              <source src="static/videos/carousel3.mp4" type="video/mp4">
-            </video>
-          </div>
+        </div>
+
+        <!-- Single video player that changes based on selection -->
+        <div class="box mt-3" style="max-width: 600px; margin: 0 auto;">
+          <video id="selected-video" controls autoplay muted loop class="has-ratio"
+            style="max-height: 300px; width: 100%;">
+            <source src="static/videos/task-1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
   <!-- End video carousel -->
 
 
@@ -276,14 +284,19 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>
-        @inproceedings{wu2025selp,
-          title={SELP: Generating Safe and Efficient Task Plans for Robot Agents with Large Language Models},
-          author={Wu, Yi and Xiong, Zikang and Hu, Yiran and Iyengar, Shreyash S. and Jiang, Nan and Bera, Aniket and Tan, Lin and Jagannathan, Suresh},
-          booktitle={IEEE International Conference on Robotics and Automation (ICRA)},
-          year={2025},
-        }
-      </code></pre>
+      <div class="is-relative">
+        <pre><code>@inproceedings{wu2025selp,
+  title={SELP: Generating Safe and Efficient Task Plans for Robot Agents with Large Language Models},
+  author={Wu, Yi and Xiong, Zikang and Hu, Yiran and Iyengar, Shreyash S. and Jiang, Nan and Bera, Aniket and Tan, Lin and Jagannathan, Suresh},
+  booktitle={IEEE International Conference on Robotics and Automation (ICRA)},
+  year={2025}
+}</code></pre>
+        <button class="button is-small is-primary is-light copy-button"
+          onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent); this.classList.add('is-success'); this.textContent='Copied!'; setTimeout(() => {this.textContent='Copy'; this.classList.remove('is-success');}, 2000);"
+          style="position: absolute; top: 8px; right: 8px;">
+          Copy
+        </button>
+      </div>
     </div>
   </section>
   <!--End BibTex citation -->
@@ -299,7 +312,8 @@
               This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
                 target="_blank">Academic Project Page Template</a> which was adopted from the <a
                 href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-              You are free to borrow the source code of this website, we just ask that you link back to this page in the
+              You are free to borrow the source code of this website, we just ask that you link back to this page in
+              the
               footer. <br> This website is licensed under a <a rel="license"
                 href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
                 Commons Attribution-ShareAlike 4.0 International License</a>.
